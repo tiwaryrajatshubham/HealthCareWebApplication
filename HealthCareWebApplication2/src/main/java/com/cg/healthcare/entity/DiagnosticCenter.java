@@ -1,63 +1,115 @@
 package com.cg.healthcare.entity;
 
-import java.io.Serializable;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="DiagnosticCenter")
+public class DiagnosticCenter {
 
-public class DiagnosticCenter implements Serializable {
-	private static final long serialVersionUID = 1L;
-	private int id;
-	private String name;
-	private String contactNo;
-	private String address;
-	private String contactEmail;
-	private List<String> servicesOffered;
-	private Set<DiagnosticTest> tests = new HashSet<>();
-	public int getId() {
-		return id;
+	@Id
+	@Column(unique=true)
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private long addressId;
+	private String buildingName;
+	private String area;
+	private String streetNo;
+	private String city;
+	private String state;
+	private String country;
+	private String pincode;
+
+	public DiagnosticCenter() {
+		super();
 	}
-	public void setId(int id) {
-		this.id = id;
+
+	public DiagnosticCenter(long addressId, String buildingName, String area, String streetNo, String city, String state,
+			String country, String pincode) {
+		super();
+		this.addressId = addressId;
+		this.buildingName = buildingName;
+		this.area = area;
+		this.streetNo = streetNo;
+		this.city = city;
+		this.state = state;
+		this.country = country;
+		this.pincode = pincode;
 	}
-	public String getName() {
-		return name;
+
+	public long getAddressId() {
+		return addressId;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public void setAddressId(long addressId) {
+		this.addressId = addressId;
 	}
-	public String getContactNo() {
-		return contactNo;
+
+	public String getBuildingName() {
+		return buildingName;
 	}
-	public void setContactNo(String contactNo) {
-		this.contactNo = contactNo;
+
+	public void setBuildingName(String buildingName) {
+		this.buildingName = buildingName;
 	}
-	public String getAddress() {
-		return address;
+
+	public String getArea() {
+		return area;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+
+	public void setArea(String area) {
+		this.area = area;
 	}
-	public String getContactEmail() {
-		return contactEmail;
+
+	public String getStreetNo() {
+		return streetNo;
 	}
-	public void setContactEmail(String contactEmail) {
-		this.contactEmail = contactEmail;
+
+	public void setStreetNo(String streetNo) {
+		this.streetNo = streetNo;
 	}
-	public List<String> getServicesOffered() {
-		return servicesOffered;
+
+	public String getCity() {
+		return city;
 	}
-	public void setServicesOffered(List<String> servicesOffered) {
-		this.servicesOffered = servicesOffered;
+
+	public void setCity(String city) {
+		this.city = city;
 	}
-	public Set<DiagnosticTest> getTests() {
-		return tests;
+
+	public String getState() {
+		return state;
 	}
-	public void setTests(Set<DiagnosticTest> tests) {
-		this.tests = tests;
+
+	public void setState(String state) {
+		this.state = state;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+
+	public String getCountry() {
+		return country;
 	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getPincode() {
+		return pincode;
+	}
+
+	public void setPincode(String pincode) {
+		this.pincode = pincode;
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Address [AddressId=" + addressId + ", Building Name=" + buildingName + ", Area=" + area + ", Street No="
+				+ streetNo + ", City=" + city + ", State=" + state + ", Country=" + country + ", Pin code=" + pincode
+				+ "]";
+	}
+
 }
